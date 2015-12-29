@@ -15,6 +15,7 @@ In this app you will find:
 * Android 6.0 Permissions
 
 TODO:
+* Animations!
 * Add signup/signin and store someway your collection of restaurands
 * Add Retrofit + RxJava
 * Implement a better weighted randomness algorith
