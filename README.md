@@ -1,5 +1,7 @@
 # restaurand
 
+![home](https://raw.githubusercontent.com/willylatorre/restaurand/master/screenshots/screenshot.jpg)
+
 Let's go out have lunch! Well, I am sure that you know plenty of good and fancy restaurants, but can you name 5 of the latests ones that you've come to? I can't, that is one of the reasons of creating *restaurand*.
 
 <b>restaurand</b> is a simple application where you can add restaurants and then, ask for one suggestions. The restaurants suggested are from your collection and shown ussing some weighted randomness: the ones that you haven't seen in a while have more probability to appear than the others.
@@ -25,3 +27,5 @@ Libraries used:
 * [ORMlite] (http://ormlite.com/sqlite_java_android_orm.shtml) 
 
 A big shoutout to Noties (https://github.com/noties) for teaching me the proper way to program. Thanks) !
+
+Of course, any pull requests are more than welcome!
