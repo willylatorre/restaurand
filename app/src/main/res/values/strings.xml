@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Restaurand</string>
+    <string name="results_name">Results</string>
+    <string name="results_detail_name">ResultsDetail</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_add">Add Restaurant</string>
+    <string name="action_delete">Borrar BBDD</string>
+    <string name="no_restaurants">No Restaurants in your Database</string>
+    <string name="editing_rest_name">Edit Restaurant</string>
+    <string name="home">Home</string>
+    <string name="myrestaus">My Restaurands</string>
+    <string name="showme">Show me a Restaurant</string>
+    <string name="hello_no_rr">You don\'t have any restaurants added yet!</string>
+    <string name="welcome_1">"Wow! You have "</string>
+    <string name="welcome_2">" restaurants added."</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_rrplace_pickup_place_btn">Select a place</string>
+    <string name="AddRRPlaceActivity">Add Place</string>
+    <string name="add_rrplace_activity_title">Add a Restaurant</string>
+    <string name="rr_added">Restaurand added!</string>
+    <string name="rrplace_detail">Restaurand detail</string>
+    <string name="no_more_rr_dialog_ok">Add more</string>
+    <string name="no_more_rr_dialog_cancel">Maybe Later</string>
+    <string name="delete_warning_dialog_ok">Yeah, sure!</string>
+    <string name="delete_warning_dialog_cancel">On second thoughts...</string>
+
+</resources>

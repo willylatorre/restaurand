@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="OrderCardRoot">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="OrderCardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">8dip</item>
+        <item name="android:layout_marginRight">8dip</item>
+        <item name="android:layout_marginTop">2dip</item>
+        <item name="android:layout_marginBottom">2dip</item>
+        <item name="cardBackgroundColor">#fff</item>
+    </style>
+
+    <style name="OrderCardHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="OrderCardStatus">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="OrderCardNumber">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="OrderCardContentGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="OrderCardName">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="OrderCardDescription">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginTop">4dip</item>
+    </style>
+
+    <style name="OrderCardDivider">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="OrderCardBottomGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="OrderCardPrice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000</item>
+    </style>
+
+    <style name="OrderCardDateBase">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">4dip</item>
+    </style>
+
+    <style name="OrderCardDate" parent="OrderCardDateBase">
+    </style>
+
+    <style name="OrderCardTime" parent="OrderCardDateBase">
+        <item name="android:layout_marginLeft">8dip</item>
+    </style>
+
+    <style name="OrderCardPoints">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dip</item>
+        <item name="android:layout_marginLeft">2dip</item>
+    </style>
+
+    <style name="OrderCardPointsTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lineSpacingExtra">3dip</item>
+        <item name="android:layout_marginRight">16dip</item>
+    </style>
+
+    <!--<style name="OrderCardCourierAccept">-->
+        <!--<item name="android:layout_width">wrap_content</item>-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:textAllCaps">true</item>-->
+        <!--<item name="android:textColor">@color/order_card_courier_accept_text_color</item>-->
+        <!--<item name="android:textSize">@dimen/order_card_secondary_text_size</item>-->
+        <!--<item name="android:id">@id/order_card_courier_accept</item>-->
+        <!--<item name="android:text">@string/confirm</item>-->
+        <!--<item name="ts_typeface">medium</item>-->
+        <!--<item name="android:visibility">gone</item>-->
+    <!--</style>-->
+
+</resources>

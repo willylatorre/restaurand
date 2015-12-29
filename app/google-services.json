@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_id": "api-project-385972801169",
+    "project_number": "385972801169",
+    "name": "Restaurand"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385972801169:android:6d5aaf80f4de4649",
+        "client_id": "android:tiramisudelemon.restaurand.app",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "tiramisudelemon.restaurand.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "385972801169-j7pvulbbq211solvmdjjr697aqmm3ocb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tiramisudelemon.restaurand.app",
+            "certificate_hash": "74483D25F45550E51B3EEDFEEF81CFA0A91422F5"
+          }
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

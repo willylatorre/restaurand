@@ -1,0 +1,44 @@
+#
+# generated on 2014/07/19 03:10:39
+#
+# --table-start--
+dataClass=tiramisudelemon.restaurand.app.data.Restaurant
+tableName=restaurant
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=pic
+# --field-end--
+# --field-start--
+fieldName=address
+# --field-end--
+# --field-start--
+fieldName=website
+# --field-end--
+# --field-start--
+fieldName=geoposition
+# --field-end--
+# --field-start--
+fieldName=random_factor
+columnName=RND_FACTOR
+# --field-end--
+# --field-start--
+fieldName=lastSelected
+columnName=LAST_SELECTED
+# --field-end--
+# --field-start--
+fieldName=viewed
+columnName=VIEWED
+# --field-end--
+# --field-start--
+fieldName=phone
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

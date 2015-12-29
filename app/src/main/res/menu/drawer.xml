@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_home"
+            android:checked="true"
+            android:icon="@drawable/detail_go"
+            android:title="@string/home"/>
+
+        <item
+            android:id="@+id/drawer_favourite"
+            android:icon="@drawable/detail_call"
+            android:title="@string/myrestaus"/>
+
+    </group>
+</menu>

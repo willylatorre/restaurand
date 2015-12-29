@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MyActivity$PlaceholderFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/randImg"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:baselineAlignBottom="true"
+        android:src="@drawable/rest_card" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You should definetively visit:"
+        android:id="@+id/detailAddress"
+        android:layout_below="@+id/randImg"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/randTitle"
+        android:layout_below="@+id/detailAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="The Supper Restaurant" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/randTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="69dp"
+            android:text="Try again"
+            android:elevation="4dp"
+            android:id="@+id/randAgain"
+            android:layout_weight="1"
+            android:background="#ffd9534f"
+            android:layout_margin="5dp"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Seems good"
+            android:elevation="4dp"
+            android:id="@+id/randOK"
+            android:layout_weight="1"
+            android:textColor="#fff"
+            android:background="@color/accent"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+
+</RelativeLayout>
