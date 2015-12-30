@@ -12,7 +12,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +23,7 @@ import tiramisudelemon.restaurand.app.fragments.RRListFragment;
 public class HomeActivity extends AppCompatActivity implements HelloFragment.HelloFragmentCallbacks {
 
     private static final String EXTRA_FRAGMENT_NUMBER = "fragmentNumber";
+    private static final String TAG = "HomeActivity";
     public static final int FRAGMENT_HOME = 0;
     public static final int FRAGMENT_RESTS = 1;
 
@@ -128,7 +128,7 @@ public class HomeActivity extends AppCompatActivity implements HelloFragment.Hel
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, fragment)
-                .addToBackStack("main")
+                .addToBackStack(TAG)
                 .commit();
     }
 

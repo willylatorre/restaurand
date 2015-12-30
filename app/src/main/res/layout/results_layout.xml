@@ -10,17 +10,18 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:id="@+id/randImg"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:baselineAlignBottom="true"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/rest_card" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You should definetively visit:"
+        android:text="@string/results_hint"
         android:id="@+id/detailAddress"
         android:layout_below="@+id/randImg"
         android:layout_centerHorizontal="true" />
@@ -33,7 +34,7 @@
         android:layout_below="@+id/detailAddress"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="The Supper Restaurant" />
+        tools:text="The Supper Restaurant" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -41,28 +42,30 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/randTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp">
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="69dp"
-            android:text="Try again"
+            android:layout_height="wrap_content"
+            android:text="@string/results_retry_button"
             android:elevation="4dp"
             android:id="@+id/randAgain"
             android:layout_weight="1"
-            android:background="#ffd9534f"
+            android:background="@drawable/button_primary_color_selector"
             android:layout_margin="5dp"
-            android:textColor="#ffffff" />
+            android:textColor="@color/white" />
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="Seems good"
+            android:layout_height="wrap_content"
+            android:text="@string/results_ok_button"
             android:elevation="4dp"
             android:id="@+id/randOK"
             android:layout_weight="1"
-            android:textColor="#fff"
-            android:background="@color/accent"
+            android:textColor="@color/white"
+            android:background="@drawable/button_accent_color_selector"
             android:layout_margin="5dp" />
     </LinearLayout>
 

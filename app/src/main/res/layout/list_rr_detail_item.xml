@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:padding="10dp"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
-            <tiramisudelemon.restaurand.app.views.IconView
-                android:id="@+id/detail_item_icon"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="8dp"
-                app:iv_imageColor="@color/primary"
-                />
+        <tiramisudelemon.restaurand.app.views.IconView
+            android:id="@+id/detail_item_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="8dp"
+            tools:src="@drawable/ic_directions_walk_white_24dp"
+            app:iv_imageColor="@color/primary" />
 
-            <TextView
-                android:id="@+id/detail_item_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:lines="1"
-                android:ellipsize="end"
-                android:layout_gravity="center_vertical"
-                android:text="Adri"
-                android:textSize="14dp"></TextView>
-
-
-            <tiramisudelemon.restaurand.app.views.IconView
-                android:id="@+id/detail_item_action"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="-2dp"
-                app:iv_imageColor="@color/accent"
-
-                />
+        <TextView
+            android:id="@+id/detail_item_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:lines="1"
+            tools:text="c/Example 1 "
+            android:textSize="14dp"></TextView>
 
 
-        </LinearLayout>
+        <tiramisudelemon.restaurand.app.views.IconView
+            android:id="@+id/detail_item_action"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="-2dp"
+            tools:src="@drawable/ic_forward_white_24dp"
+            app:iv_imageColor="@color/accent"
+
+            />
+
+
+    </LinearLayout>
 
 
 </LinearLayout>

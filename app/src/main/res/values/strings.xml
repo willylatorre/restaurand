@@ -2,34 +2,62 @@
 <resources>
 
     <string name="app_name">Restaurand</string>
-    <string name="results_name">Results</string>
-    <string name="results_detail_name">ResultsDetail</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="save">Save</string>
+
+
+    <string name="activity_editing_rr">Edit Restaurant</string>
+    <string name="activity_add_rr_place">Add Place</string>
+
+
+    <!--Drawer-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="drawer_home">Home</string>
+    <string name="drawer_myrestaus">My Restaurands</string>
+
+
+    <!--Results-->
+    <string name="results_name">Results</string>
+    <string name="results_detail_name">ResultsDetail</string>
     <string name="action_add">Add Restaurant</string>
     <string name="action_delete">Borrar BBDD</string>
-    <string name="no_restaurants">No Restaurants in your Database</string>
-    <string name="editing_rest_name">Edit Restaurant</string>
-    <string name="home">Home</string>
-    <string name="myrestaus">My Restaurands</string>
-    <string name="showme">Show me a Restaurant</string>
-    <string name="hello_no_rr">You don\'t have any restaurants added yet!</string>
-    <string name="welcome_1">"Wow! You have "</string>
-    <string name="welcome_2">" restaurants added."</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Welcome screen -->
+    <string name="hello_showme_restaurands">Show me a Restaurant</string>
+    <string name="hello_no_rr">You don\'t have any restaurants added yet!</string>
+    <string name="hello_welcome_1">"Wow! You have "</string>
+    <string name="hello_welcome_2">" restaurants added."</string>
+    <string name="hello_add_restaurant">Add a Restaurand</string>
+
+
+    <!--Add RR-->
     <string name="add_rrplace_pickup_place_btn">Select a place</string>
-    <string name="AddRRPlaceActivity">Add Place</string>
     <string name="add_rrplace_activity_title">Add a Restaurant</string>
-    <string name="rr_added">Restaurand added!</string>
-    <string name="rrplace_detail">Restaurand detail</string>
-    <string name="no_more_rr_dialog_ok">Add more</string>
-    <string name="no_more_rr_dialog_cancel">Maybe Later</string>
-    <string name="delete_warning_dialog_ok">Yeah, sure!</string>
-    <string name="delete_warning_dialog_cancel">On second thoughts...</string>
+    <string name="add_rr_place_toast_success">Restaurand added!</string>
+    <string name="rrplace_detail_title">Restaurand detail</string>
+
+    <!--Dialogs and alerts-->
+    <string name="dialog_no_more_rr_ok">Add more</string>
+    <string name="dialog_no_more_rr_cancel">Maybe Later</string>
+    <string name="dialog_delete_warning_ok">Yeah, sure!</string>
+    <string name="dialog_delete_warning_cancel">On second thoughts...</string>
+    <string name="alert_no_website">No website</string>
+    <string name="alert_no_phone">Your device don\'t support calls!</string>
+    <string name="alert_no_maps">You don\'t have any app that supports maps</string>
+    <string name="dialog_delete_warning_title">Delete Restaurand</string>
+    <string name="dialog_delete_warning_message">Are you sure you don\'t like anymore this tasty Restaurand?</string>
+    <string name="dialog_no_more_rr_title">Restaurand crisissss</string>
+    <string name="dialog_no_more_rr_message">We have shown you all your restaurants. Maybe it is time to add some more?</string>
+
+    <!--RR card-->
+    <string name="hint_restaurand_name">Restaurand name</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_website">Website</string>
+
+    <!--Result-->
+    <string name="results_hint">You should definetively visit:</string>
+    <string name="results_retry_button">Try again</string>
+    <string name="results_ok_button">Seems good</string>
 
 </resources>

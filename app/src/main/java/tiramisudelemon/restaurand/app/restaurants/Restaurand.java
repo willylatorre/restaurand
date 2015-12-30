@@ -1,9 +1,5 @@
 package tiramisudelemon.restaurand.app.restaurants;
 
-/**
- * Created by Past on 15/07/2014.
- */
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -11,7 +7,7 @@ import com.j256.ormlite.field.DatabaseField;
 
 import java.util.Date;
 
-public class Restaurant implements Parcelable{
+public class Restaurand implements Parcelable{
 
     @DatabaseField(generatedId = true)
     private int id;
@@ -36,6 +32,9 @@ public class Restaurant implements Parcelable{
     @DatabaseField
     private double rating;
 
+    @DatabaseField
+    private String type;
+
 
 
 
@@ -47,7 +46,7 @@ public class Restaurant implements Parcelable{
         return name;
     }
 
-    public Restaurant setName(String name) {
+    public Restaurand setName(String name) {
         this.name = name;
         return this;
     }
@@ -56,7 +55,7 @@ public class Restaurant implements Parcelable{
         return pic;
     }
 
-    public Restaurant setPic(String pic) {
+    public Restaurand setPic(String pic) {
         this.pic = pic;
         return this;
 
@@ -66,7 +65,7 @@ public class Restaurant implements Parcelable{
         return address;
     }
 
-    public Restaurant setAddress(String address) {
+    public Restaurand setAddress(String address) {
         this.address = address;
         return this;
 
@@ -76,7 +75,7 @@ public class Restaurant implements Parcelable{
         return website;
     }
 
-    public Restaurant setWebsite(String website) {
+    public Restaurand setWebsite(String website) {
         this.website = website;
         return this;
 
@@ -86,7 +85,7 @@ public class Restaurant implements Parcelable{
         return geoposition;
     }
 
-    public Restaurant setGeoposition(String geoposition) {
+    public Restaurand setGeoposition(String geoposition) {
         this.geoposition = geoposition;
         return this;
 
@@ -96,7 +95,7 @@ public class Restaurant implements Parcelable{
         return random_factor;
     }
 
-    public Restaurant setRandom_factor(double random_factor) {
+    public Restaurand setRandom_factor(double random_factor) {
         this.random_factor = random_factor;
         return this;
 
@@ -106,7 +105,7 @@ public class Restaurant implements Parcelable{
         return lastSelected;
     }
 
-    public Restaurant setLastSelected(Date lastSelected) {
+    public Restaurand setLastSelected(Date lastSelected) {
         this.lastSelected = lastSelected;
         return this;
 
@@ -116,7 +115,7 @@ public class Restaurant implements Parcelable{
         return viewed;
     }
 
-    public Restaurant setViewed(int viewed) {
+    public Restaurand setViewed(int viewed) {
         this.viewed = viewed;
         return this;
 
@@ -126,7 +125,7 @@ public class Restaurant implements Parcelable{
         return phone;
     }
 
-    public Restaurant setPhone(String phone) {
+    public Restaurand setPhone(String phone) {
         this.phone = phone;
         return this;
     }
@@ -135,15 +134,23 @@ public class Restaurant implements Parcelable{
         return rating;
     }
 
-    public Restaurant setRating(double rating) {
+    public Restaurand setRating(double rating) {
         this.rating = rating;
         return this;
     }
 
-    public Restaurant(){
-
+    public RRType getType() {
+        return RRType.forValue(type);
     }
 
+    public Restaurand setType(RRType type) {
+        this.type = type.getValue();
+        return this;
+    }
+
+    public Restaurand(){
+        this.type = RRType.DEFAULT.getValue();
+    }
 
 
     @Override
@@ -163,9 +170,11 @@ public class Restaurant implements Parcelable{
         dest.writeLong(lastSelected != null ? lastSelected.getTime() : -1);
         dest.writeInt(this.viewed);
         dest.writeString(this.phone);
+        dest.writeDouble(this.rating);
+        dest.writeString(this.type);
     }
 
-    protected Restaurant(Parcel in) {
+    protected Restaurand(Parcel in) {
         this.id = in.readInt();
         this.name = in.readString();
         this.pic = in.readString();
@@ -177,15 +186,17 @@ public class Restaurant implements Parcelable{
         this.lastSelected = tmpLastSelected == -1 ? null : new Date(tmpLastSelected);
         this.viewed = in.readInt();
         this.phone = in.readString();
+        this.rating = in.readDouble();
+        this.type = in.readString();
     }
 
-    public static final Creator<Restaurant> CREATOR = new Creator<Restaurant>() {
-        public Restaurant createFromParcel(Parcel source) {
-            return new Restaurant(source);
+    public static final Creator<Restaurand> CREATOR = new Creator<Restaurand>() {
+        public Restaurand createFromParcel(Parcel source) {
+            return new Restaurand(source);
         }
 
-        public Restaurant[] newArray(int size) {
-            return new Restaurant[size];
+        public Restaurand[] newArray(int size) {
+            return new Restaurand[size];
         }
     };
 }

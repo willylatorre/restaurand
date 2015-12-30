@@ -2,8 +2,8 @@
 # generated on 2014/07/19 03:10:39
 #
 # --table-start--
-dataClass=tiramisudelemon.restaurand.app.data.Restaurant
-tableName=restaurant
+dataClass=tiramisudelemon.restaurand.app.data.Restaurand
+tableName=restaurand
 # --table-fields-start--
 # --field-start--
 fieldName=id
@@ -41,4 +41,7 @@ fieldName=phone
 # --field-end--
 # --table-fields-end--
 # --table-end--
+fieldName=type
+# --field-end--
+# --field-start--
 #################################

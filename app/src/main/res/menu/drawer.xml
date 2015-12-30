@@ -6,13 +6,13 @@
         <item
             android:id="@+id/drawer_home"
             android:checked="true"
-            android:icon="@drawable/detail_go"
-            android:title="@string/home"/>
+            android:icon="@drawable/ic_forward_white_24dp"
+            android:title="@string/drawer_home"/>
 
         <item
             android:id="@+id/drawer_favourite"
-            android:icon="@drawable/detail_call"
-            android:title="@string/myrestaus"/>
+            android:icon="@drawable/ic_forward_white_24dp"
+            android:title="@string/drawer_myrestaus"/>
 
     </group>
 </menu>

@@ -16,7 +16,8 @@ import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
 import tiramisudelemon.restaurand.app.activities.RREditingActivity;
 import tiramisudelemon.restaurand.app.restaurants.RRAdapter;
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.RRType;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 import tiramisudelemon.restaurand.app.views.LinearListView;
 
 public class RRListFragment extends Fragment {
@@ -31,7 +32,7 @@ public class RRListFragment extends Fragment {
 
 
     private RRAdapter adapter;
-    private List<Restaurant> listRestaurands;
+    private List<Restaurand> listRestaurands;
 
     @Bind(R.id.rr_list)
     LinearListView rrList;
@@ -63,7 +64,7 @@ public class RRListFragment extends Fragment {
         rrList.setOnItemClickListener(new LinearListView.OnItemClickListener() {
             @Override
             public void onItemClick(LinearListView view, View clicked, BaseAdapter adapter, int position) {
-                Restaurant item = listRestaurands.get(position);
+                Restaurand item = listRestaurands.get(position);
 
                 if (item != null) {
                     final Intent intent = RREditingActivity.makeIntent(getActivity(), item.getId());
@@ -71,6 +72,11 @@ public class RRListFragment extends Fragment {
                 }
             }
         });
+
+        if(listRestaurands.isEmpty()){
+            listRestaurands.add(new Restaurand().setType(RRType.EMPTY));
+        }
+
         adapter.setItems(listRestaurands);
     }
 

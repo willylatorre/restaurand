@@ -3,7 +3,7 @@
 #
 # --table-start--
 dataClass=tiramisudelemon.restaurand.app.data.Restaurant
-tableName=restaurant
+tableName=restaurand
 # --table-fields-start--
 # --field-start--
 fieldName=id

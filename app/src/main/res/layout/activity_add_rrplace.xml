@@ -7,8 +7,9 @@
     tools:context=".activities.AddRRPlaceActivity">
 
 
-    <include layout="@layout/includes_toolbar"
-        android:id="@+id/toolbar"/>
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/includes_toolbar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,25 +20,23 @@
             android:id="@+id/add_rrplace_pickup_place_btn"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:src="@drawable/pick_a_place" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/click_me"
+            android:layout_alignTop="@+id/add_rrplace_pickup_place_btn"
 
             android:layout_toRightOf="@+id/add_rrplace_pickup_place_btn"
-            android:layout_alignTop="@+id/add_rrplace_pickup_place_btn"
-            />
+            android:src="@drawable/click_me" />
 
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/add_rrplace_pickup_place_btn"
-            >
+            android:layout_below="@id/add_rrplace_pickup_place_btn">
 
             <include layout="@layout/layout_rr_card" />
 
@@ -49,9 +48,9 @@
         android:id="@+id/rrSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="center_horizontal"
         android:background="@color/accent"
-        android:layout_alignParentBottom="true"
         android:text="Save"
         android:textColor="@color/icons" />
 </LinearLayout>

@@ -1,6 +1,5 @@
 package tiramisudelemon.restaurand.app.media;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Bitmap;
@@ -19,7 +18,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
 
 public class ImagesModule {

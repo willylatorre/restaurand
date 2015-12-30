@@ -25,9 +25,9 @@ public class DeleteWarningDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity())
-                .setTitle("Delete Restaurand")
-                .setMessage("Are you sure you don't like anymore this tasty Restaurand?")
-                .setPositiveButton(R.string.delete_warning_dialog_ok,
+                .setTitle(R.string.dialog_delete_warning_title)
+                .setMessage(R.string.dialog_delete_warning_message)
+                .setPositiveButton(R.string.dialog_delete_warning_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 if (positiveListener != null) {
@@ -36,7 +36,7 @@ public class DeleteWarningDialog extends DialogFragment {
                             }
                         }
                 )
-                .setNegativeButton(R.string.delete_warning_dialog_cancel,
+                .setNegativeButton(R.string.dialog_delete_warning_cancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 dismiss();

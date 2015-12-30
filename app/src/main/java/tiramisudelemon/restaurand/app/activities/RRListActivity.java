@@ -18,7 +18,7 @@ import butterknife.OnClick;
 import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
 import tiramisudelemon.restaurand.app.dialogs.NoMoreRRDialog;
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 
 
 public class RRListActivity extends AppCompatActivity {
@@ -40,8 +40,8 @@ public class RRListActivity extends AppCompatActivity {
     @Bind(R.id.randOK)
     Button randOk;
 
-    private Restaurant selectedRR;
-    private List<Restaurant> rrList;
+    private Restaurand selectedRR;
+    private List<Restaurand> rrList;
     private int rrId;
 
 
@@ -53,6 +53,7 @@ public class RRListActivity extends AppCompatActivity {
 
         rrList = App.db().getAllRestaurants();
         Collections.shuffle(rrList);
+        //TODO: Implement better shuffling
 
         rrId = 0;
         selectedRR = rrList.get(rrId);
@@ -60,9 +61,9 @@ public class RRListActivity extends AppCompatActivity {
         setRR(selectedRR);
     }
 
-    private void setRR(Restaurant restaurant) {
-        App.images().loadImageIntoView(restaurant.getName(), randImg);
-        randTitle.setText(restaurant.getName());
+    private void setRR(Restaurand restaurand) {
+        App.images().loadImageIntoView(restaurand.getName(), randImg);
+        randTitle.setText(restaurand.getName());
     }
 
     @OnClick(R.id.randOK)
@@ -100,14 +101,14 @@ public class RRListActivity extends AppCompatActivity {
 
     }
     // Implementing Fisher–Yates shuffle
-//    static void shuffleArray(Restaurant[] ar)
+//    static void shuffleArray(Restaurand[] ar)
 //    {
 //        Random rnd = new Random();
 //        for (int i = ar.length - 1; i > 0; i--)
 //        {
 //            int index = rnd.nextInt(i + 1);
 //            // Simple swap
-//            Restaurant a = ar[index];
+//            Restaurand a = ar[index];
 //            ar[index] = ar[i];
 //            ar[i] = a;
 //        }

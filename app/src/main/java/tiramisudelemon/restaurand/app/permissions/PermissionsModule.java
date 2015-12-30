@@ -1,7 +1,5 @@
 package tiramisudelemon.restaurand.app.permissions;
 
-import android.content.Context;
-
 /**
  * Created by work on 29/12/15.
  */

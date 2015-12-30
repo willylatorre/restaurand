@@ -2,25 +2,25 @@ package tiramisudelemon.restaurand.app.models;
 
 import java.util.List;
 
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 
 /**
  * Created by work on 17/12/15.
  */
 public interface  DatabaseModule {
 
-    void createRest(Restaurant restaurant);
-    void updateRestaurant(Restaurant restaurant);
+    void createRest(Restaurand restaurand);
+    void updateRestaurant(Restaurand restaurand);
 
     long countRestaurants();
 
-    List<Restaurant> getAllRestaurants();
+    List<Restaurand> getAllRestaurants();
 
-    Restaurant searchRestaurantById(int id);
+    Restaurand searchRestaurantById(int id);
 
-    void updateRestaurantRndFactor (Restaurant  restaurant);
-    void increaseRestaurantRndFactor (Restaurant restaurant);
+    void updateRestaurantRndFactor (Restaurand restaurand);
+    void increaseRestaurantRndFactor (Restaurand restaurand);
 
 
-    void deleteRR(Restaurant rest);
+    void deleteRR(Restaurand rest);
 }

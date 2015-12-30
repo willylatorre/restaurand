@@ -41,7 +41,7 @@
 
         <activity
             android:name=".activities.RREditingActivity"
-            android:label="@string/editing_rest_name"></activity>
+            android:label="@string/activity_editing_rr"></activity>
 
         <activity android:name=".activities.AddRRPlaceActivity"
             android:label="@string/add_rrplace_activity_title"></activity>

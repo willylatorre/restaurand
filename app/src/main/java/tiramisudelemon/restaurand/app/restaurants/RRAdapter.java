@@ -2,9 +2,11 @@ package tiramisudelemon.restaurand.app.restaurants;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,13 +17,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
+import tiramisudelemon.restaurand.app.activities.AddRRPlaceActivity;
 import tiramisudelemon.restaurand.app.models.BaseListAdapter;
 
-/**
- * Created by Past on 21/09/2014.
- */
-
-public class RRAdapter extends BaseListAdapter<Restaurant> {
+public class RRAdapter extends BaseListAdapter<Restaurand> {
 
     private final Context mContext;
     private final DecimalFormat df;
@@ -37,28 +36,66 @@ public class RRAdapter extends BaseListAdapter<Restaurant> {
     @Override
     public View newView(LayoutInflater inflater, int position, ViewGroup parent) {
 
-        final View view = inflater.inflate(R.layout.list_rr_item, parent, false);
-        view.setTag(new RestaurantHolder(view));
+        final View view;
+        final Restaurand restaurand = getItem(position);
+
+        switch (restaurand.getType()){
+            case DEFAULT:
+                view = inflater.inflate(R.layout.list_rr_item, parent, false);
+                view.setTag(new RestaurantHolder(view));
+                break;
+            case EMPTY:
+                view = inflater.inflate(R.layout.list_rr_item_empty, parent, false);
+                view.setTag(new EmptyHolder(view));
+                break;
+            default:
+                view = inflater.inflate(R.layout.list_rr_item, parent, false);
+                view.setTag(new RestaurantHolder(view));
+                break;
+        }
+
+
+
         return view;
     }
 
     @Override
     public void bindView(int position, View view) {
 
-        final Restaurant restaurant = getItem(position);
-        bindRRItem(restaurant, (RestaurantHolder) view.getTag());
+        final Restaurand restaurand = getItem(position);
+
+        switch (restaurand.getType()) {
+            case DEFAULT:
+                bindRRItem(restaurand, (RestaurantHolder) view.getTag());
+                break;
+            case EMPTY:
+                bindEmpty((EmptyHolder) view.getTag());
+                break;
+        }
     }
 
 
-    void bindRRItem(Restaurant item, RestaurantHolder holder) {
+    void bindRRItem(Restaurand item, RestaurantHolder holder) {
 
         //Binding party
         holder.rTitle.setText(item.getName());
         holder.rRating.setText(df.format(item.getRating()));
-        App.images().loadName(item.getName(), R.drawable.ic_fourchette)
+        App.images().loadResource(R.drawable.ic_fourchette)
                 .placeholder(R.drawable.ic_fourchette)
                 .noFade()
                 .into(holder.rPicture);
+    }
+
+    void bindEmpty(EmptyHolder holder) {
+
+        //Binding party
+        holder.rButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = AddRRPlaceActivity.makeIntent(mContext);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -78,6 +115,17 @@ public class RRAdapter extends BaseListAdapter<Restaurant> {
         ImageView rPicture;
 
         RestaurantHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
+
+    }
+
+    static class EmptyHolder {
+
+        @Bind(R.id.emptyButton)
+        Button rButton;
+
+        EmptyHolder(View view) {
             ButterKnife.bind(this, view);
         }
 

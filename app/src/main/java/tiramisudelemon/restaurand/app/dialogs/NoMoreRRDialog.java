@@ -25,9 +25,9 @@ public class NoMoreRRDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         final AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity())
-                .setTitle("Restaurand crisissss")
-                .setMessage("We have shown you all your restaurants. Maybe it is time to add some more?")
-                .setPositiveButton(R.string.no_more_rr_dialog_ok,
+                .setTitle(R.string.dialog_no_more_rr_title)
+                .setMessage(R.string.dialog_no_more_rr_message)
+                .setPositiveButton(R.string.dialog_no_more_rr_ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 if (positiveListener != null) {
@@ -36,7 +36,7 @@ public class NoMoreRRDialog extends DialogFragment {
                             }
                         }
                 )
-                .setNegativeButton(R.string.no_more_rr_dialog_cancel,
+                .setNegativeButton(R.string.dialog_no_more_rr_cancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 dismiss();

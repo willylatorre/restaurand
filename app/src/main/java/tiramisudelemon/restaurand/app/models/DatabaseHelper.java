@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 
 /**
  * Created by Past on 16/07/2014.
@@ -27,8 +27,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     private static final int DATABASE_VERSION = 1;
 
     //DAOs
-    private Dao<Restaurant, Integer> restauDao = null;
-    private RuntimeExceptionDao<Restaurant, Integer> restauREDao = null;
+    private Dao<Restaurand, Integer> restauDao = null;
+    private RuntimeExceptionDao<Restaurand, Integer> restauREDao = null;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,7 +39,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
-            TableUtils.createTable(connectionSource, Restaurant.class);
+            TableUtils.createTable(connectionSource, Restaurand.class);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException();
@@ -50,7 +50,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
             Log.i(DatabaseHelper.class.getName(), "onUpgrade");
-            TableUtils.dropTable(connectionSource, Restaurant.class, true);
+            TableUtils.dropTable(connectionSource, Restaurand.class, true);
             // after we drop the old databases, we create the new ones
             onCreate(db, connectionSource);
         } catch (SQLException e) {
@@ -61,7 +61,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
 
     public void clearDatabase(ConnectionSource connectionSource) {
         try {
-            TableUtils.clearTable(connectionSource, Restaurant.class);
+            TableUtils.clearTable(connectionSource, Restaurand.class);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -71,9 +71,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
      * Returns the Database Access Object (DAO) for our SimpleData class. It will create it or just give the cached
      * value.
      */
-    public Dao<Restaurant, Integer> getRestauDao() throws SQLException {
+    public Dao<Restaurand, Integer> getRestauDao() throws SQLException {
         if (restauDao == null) {
-            restauDao = getDao(Restaurant.class);
+            restauDao = getDao(Restaurand.class);
         }
         return restauDao;
     }
@@ -82,9 +82,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
      * Returns the RuntimeExceptionDao (Database Access Object) version of a Dao for our SimpleData class. It will
      * create it or just give the cached value. RuntimeExceptionDao only through RuntimeExceptions.
      */
-    public RuntimeExceptionDao<Restaurant, Integer> getRERestauDao() {
+    public RuntimeExceptionDao<Restaurand, Integer> getRERestauDao() {
         if (restauREDao == null) {
-            restauREDao = getRuntimeExceptionDao(Restaurant.class);
+            restauREDao = getRuntimeExceptionDao(Restaurand.class);
         }
         return restauREDao;
     }
@@ -102,13 +102,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
 
 
     @Override
-    public void createRest(Restaurant restaurant) {
-        restauREDao.create(restaurant);
+    public void createRest(Restaurand restaurand) {
+        restauREDao.create(restaurand);
     }
 
     @Override
-    public void updateRestaurant(Restaurant restaurant) {
-        restauREDao.update(restaurant);
+    public void updateRestaurant(Restaurand restaurand) {
+        restauREDao.update(restaurand);
     }
 
     @Override
@@ -117,15 +117,15 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     }
 
     @Override
-    public List<Restaurant> getAllRestaurants() {
+    public List<Restaurand> getAllRestaurants() {
         return restauREDao.queryForAll();
     }
 
     @Override
-    public Restaurant searchRestaurantById(int id) {
+    public Restaurand searchRestaurantById(int id) {
 
-        final Restaurant rest;
-        QueryBuilder<Restaurant, Integer> qb = restauREDao.queryBuilder();
+        final Restaurand rest;
+        QueryBuilder<Restaurand, Integer> qb = restauREDao.queryBuilder();
         try {
             qb.where().eq("id", id);
             rest = qb.queryForFirst();
@@ -137,13 +137,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     }
 
     @Override
-    public void increaseRestaurantRndFactor(Restaurant restaurant) {
+    public void increaseRestaurantRndFactor(Restaurand restaurand) {
 
-        UpdateBuilder<Restaurant, Integer> ub = restauREDao.updateBuilder();
+        UpdateBuilder<Restaurand, Integer> ub = restauREDao.updateBuilder();
         try {
-            ub.where().eq("id", restaurant.getId());
+            ub.where().eq("id", restaurand.getId());
             //Aumentamos 1 el valor rnd_factor
-            double rf = restaurant.getRandom_factor();
+            double rf = restaurand.getRandom_factor();
             rf++;
             ub.updateColumnValue("RND_FACTOR", rf);
             ub.update();
@@ -153,12 +153,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     }
 
     @Override
-    public void updateRestaurantRndFactor(Restaurant restaurant) {
-        UpdateBuilder<Restaurant, Integer> ub = restauREDao.updateBuilder();
+    public void updateRestaurantRndFactor(Restaurand restaurand) {
+        UpdateBuilder<Restaurand, Integer> ub = restauREDao.updateBuilder();
         try {
-            ub.where().eq("id", restaurant.getId());
+            ub.where().eq("id", restaurand.getId());
             //Recuperamos el mayor valor de random_factor
-            double max = restauREDao.queryRawValue("select max(RND_FACTOR) from restaurant");
+            double max = restauREDao.queryRawValue("select max(RND_FACTOR) from restaurand");
             max = max + 0.1;
             ub.updateColumnValue("RND_FACTOR", max);
             ub.updateColumnValue("LAST_SELECTED", new Date());
@@ -171,7 +171,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper implements DatabaseM
     }
 
     @Override
-    public void deleteRR(Restaurant rest) {
+    public void deleteRR(Restaurand rest) {
         restauREDao.delete(rest);
     }
 }

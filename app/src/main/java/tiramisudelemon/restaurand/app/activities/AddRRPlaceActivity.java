@@ -9,6 +9,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
@@ -16,11 +18,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.PlacePhotoMetadataBuffer;
-import com.google.android.gms.location.places.PlacePhotoMetadataResult;
-import com.google.android.gms.location.places.PlacePhotoResult;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
@@ -29,9 +27,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
-import tiramisudelemon.restaurand.app.media.ImagesModule;
 import tiramisudelemon.restaurand.app.permissions.PermissionListener;
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 import tiramisudelemon.restaurand.app.utils.ToastUtils;
 
 public class AddRRPlaceActivity extends AppCompatActivity {
@@ -61,12 +58,17 @@ public class AddRRPlaceActivity extends AppCompatActivity {
     @Bind(R.id.rrRating)
     RatingBar rrRating;
 
+    @Bind(R.id.rrSave)
+    Button rrSave;
+
     private Place googlePlace;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Prevent keyboard to popup
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         setContentView(R.layout.activity_add_rrplace);
         ButterKnife.bind(this);
 
@@ -101,9 +103,9 @@ public class AddRRPlaceActivity extends AppCompatActivity {
     }
 
 
-    private Restaurant getRRfromForm() {
+    private Restaurand getRRfromForm() {
 
-        final Restaurant rest = new Restaurant()
+        final Restaurand rest = new Restaurand()
                 .setName(rrName.getText().toString())
                 .setAddress(rrAddress.getText().toString())
                 .setPhone(rrPhone.getText().toString())
@@ -117,16 +119,18 @@ public class AddRRPlaceActivity extends AppCompatActivity {
     @OnClick(R.id.rrSave)
     public void saveRR() {
 
+        rrSave.setEnabled(false);
         //Save picture
-        if (googlePlacePicture != null) {
-            final ImagesModule images = App.images();
-            if (!images.fileExists(googlePlace.getName().toString())) {
-                images.saveImage(googlePlacePicture, googlePlace.getName().toString());
-            }
-        }
+//            if (googlePlacePicture != null) {
+//                final ImagesModule images = App.images();
+//                if (!images.fileExists(googlePlace.getName().toString())) {
+//                    images.saveImage(googlePlacePicture, googlePlace.getName().toString());
+//                }
+//            }
         //Save restaurand
         App.db().createRest(getRRfromForm());
-        ToastUtils.show(R.string.rr_added);
+        ToastUtils.show(R.string.add_rr_place_toast_success);
+        rrSave.setEnabled(true);
         goToMain();
     }
 
@@ -176,49 +180,49 @@ public class AddRRPlaceActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 googlePlace = PlacePicker.getPlace(this, data);
 
-                getPlaceImage(googlePlace.getId());
+//                getPlaceImage(googlePlace.getId());
                 fillPlace(googlePlace);
             }
         }
     }
 
-    private void getPlaceImage(String placeId) {
+//    private void getPlaceImage(String placeId) {
+//
+//        Places.GeoDataApi.getPlacePhotos(mGoogleApiClient, placeId)
+//                .setResultCallback(new ResultCallback<PlacePhotoMetadataResult>() {
+//
+//
+//                    @Override
+//                    public void onResult(PlacePhotoMetadataResult photos) {
+//                        if (!photos.getStatus().isSuccess()) {
+//                            return;
+//                        }
+//
+//                        PlacePhotoMetadataBuffer photoMetadataBuffer = photos.getPhotoMetadata();
+//                        if (photoMetadataBuffer.getCount() > 0) {
+//                            // Display the first bitmap in an ImageView in the size of the view
+//                            photoMetadataBuffer.get(0)
+//                                    .getPhoto(mGoogleApiClient)
+//                                    .setResultCallback(mDisplayPhotoResultCallback);
+//                        }
+//                        photoMetadataBuffer.release();
+//                    }
+//                });
+//
+//
+//    }
 
-        Places.GeoDataApi.getPlacePhotos(mGoogleApiClient, placeId)
-                .setResultCallback(new ResultCallback<PlacePhotoMetadataResult>() {
-
-
-                    @Override
-                    public void onResult(PlacePhotoMetadataResult photos) {
-                        if (!photos.getStatus().isSuccess()) {
-                            return;
-                        }
-
-                        PlacePhotoMetadataBuffer photoMetadataBuffer = photos.getPhotoMetadata();
-                        if (photoMetadataBuffer.getCount() > 0) {
-                            // Display the first bitmap in an ImageView in the size of the view
-                            photoMetadataBuffer.get(0)
-                                    .getPhoto(mGoogleApiClient)
-                                    .setResultCallback(mDisplayPhotoResultCallback);
-                        }
-                        photoMetadataBuffer.release();
-                    }
-                });
-
-
-    }
-
-    private ResultCallback<PlacePhotoResult> mDisplayPhotoResultCallback
-            = new ResultCallback<PlacePhotoResult>() {
-        @Override
-        public void onResult(PlacePhotoResult placePhotoResult) {
-            if (!placePhotoResult.getStatus().isSuccess()) {
-                return;
-            }
-            googlePlacePicture = placePhotoResult.getBitmap();
-
-        }
-    };
+//    private ResultCallback<PlacePhotoResult> mDisplayPhotoResultCallback
+//            = new ResultCallback<PlacePhotoResult>() {
+//        @Override
+//        public void onResult(PlacePhotoResult placePhotoResult) {
+//            if (!placePhotoResult.getStatus().isSuccess()) {
+//                return;
+//            }
+//            googlePlacePicture = placePhotoResult.getBitmap();
+//
+//        }
+//    };
 
 
     @Override

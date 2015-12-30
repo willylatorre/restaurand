@@ -13,9 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
-
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -23,10 +20,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
-import tiramisudelemon.restaurand.app.media.ImagesModule;
 import tiramisudelemon.restaurand.app.restaurants.RRDetailItem;
 import tiramisudelemon.restaurand.app.restaurants.RRDetailsAdapter;
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 import tiramisudelemon.restaurand.app.utils.IntentUtils;
 import tiramisudelemon.restaurand.app.utils.ToastUtils;
 import tiramisudelemon.restaurand.app.views.LinearListView;
@@ -43,7 +39,7 @@ public class RRDetailActivity extends AppCompatActivity {
     }
 
     private Context mContext;
-    private Restaurant rest;
+    private Restaurand rest;
     private ArrayList<RRDetailItem> mRestDetails;
     private RRDetailsAdapter mAdapter;
 
@@ -70,7 +66,7 @@ public class RRDetailActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.mipmap.ic_back);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle(R.string.rrplace_detail);
+            actionBar.setTitle(R.string.rrplace_detail_title);
         }
 
         mAdapter = new RRDetailsAdapter(this);
@@ -104,7 +100,7 @@ public class RRDetailActivity extends AppCompatActivity {
 
         if (rest != null) {
             detailTitle.setText(rest.getName());
-            App.images().loadImageIntoView(rest.getName(),detailImg);
+//            App.images().loadImageIntoView(rest.getName(),detailImg);
             fillDetailsFromRest();
             mAdapter.setItems(mRestDetails);
         }
@@ -112,7 +108,7 @@ public class RRDetailActivity extends AppCompatActivity {
 
     private void launchWebsite(String website) {
         if (TextUtils.isEmpty(website)) {
-            Toast.makeText(RRDetailActivity.this, "No website.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(RRDetailActivity.this, R.string.alert_no_website, Toast.LENGTH_SHORT).show();
         } else {
             final Intent intent = IntentUtils.getWebIntent(website);
             startActivity(intent);
@@ -124,7 +120,7 @@ public class RRDetailActivity extends AppCompatActivity {
         if (IntentUtils.canBeLaunched(mContext, intent)) {
             startActivity(intent);
         } else {
-            ToastUtils.show("No dispones de ninguna aplicación de teléfono");
+            ToastUtils.show(R.string.alert_no_phone);
         }
 
     }
@@ -134,7 +130,7 @@ public class RRDetailActivity extends AppCompatActivity {
         if (IntentUtils.canBeLaunched(mContext, intent)) {
             startActivity(intent);
         } else {
-            ToastUtils.show("No dispones de ninguna aplicación de mapas");
+            ToastUtils.show(R.string.alert_no_maps);
         }
     }
 

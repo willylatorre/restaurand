@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -20,7 +21,7 @@ import butterknife.OnClick;
 import tiramisudelemon.restaurand.app.App;
 import tiramisudelemon.restaurand.app.R;
 import tiramisudelemon.restaurand.app.dialogs.DeleteWarningDialog;
-import tiramisudelemon.restaurand.app.restaurants.Restaurant;
+import tiramisudelemon.restaurand.app.restaurants.Restaurand;
 
 public class RREditingActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class RREditingActivity extends AppCompatActivity {
         return intent;
     }
 
-    private Restaurant rest;
+    private Restaurand rest;
 
     @Bind(R.id.rrName)
     EditText rrName;
@@ -57,6 +58,8 @@ public class RREditingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Prevent keyboard to popup
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         setContentView(R.layout.activity_editing_detail_layout);
         ButterKnife.bind(this);
 
@@ -68,7 +71,7 @@ public class RREditingActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.mipmap.ic_back);
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle(R.string.rrplace_detail);
+            actionBar.setTitle(R.string.rrplace_detail_title);
         }
 
 
@@ -82,7 +85,7 @@ public class RREditingActivity extends AppCompatActivity {
 
     private void fillFields() {
         if (rest != null) {
-            App.images().loadImageIntoView(rest.getName(), rrImage);
+//            App.images().loadImageIntoView(rest.getName(), rrImage);
             rrName.setText(rest.getName());
             rrAddress.setText(rest.getAddress());
             rrPhone.setText(rest.getPhone());
